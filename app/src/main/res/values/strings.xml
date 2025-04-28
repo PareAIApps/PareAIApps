@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">pare_ai_pk</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="web_client_id">910333591798-k2nap1mdpicksmf8nn6g8eq6qd2v1jbh.apps.googleusercontent.com</string>
+
+    <!--  Login  -->
+    <string name="email_invalid">Invalid email format</string>
+    <string name="password_short">Password cannot be less than 6 characters</string>
+
+    <!--  Forgot Passoword  -->
+    <string name="forgot_password_description">Masukkan email Anda untuk menerima tautan reset password</string>
+
+</resources>
