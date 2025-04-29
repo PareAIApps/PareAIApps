@@ -1,12 +1,11 @@
 package pnj.pk.pareaipk.ui.forgot_password
 
+import android.content.DialogInterface
+import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import pnj.pk.pareaipk.R
 import pnj.pk.pareaipk.databinding.ActivityForgotPasswordBinding
 
@@ -25,7 +24,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
             if (message.contains("Tautan reset")) {
-                finish()  // Close the activity after successful reset email
+                // Show confirmation dialog after sending the reset link
+                showConfirmationDialog()
             }
         }
 
@@ -44,5 +44,18 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
 
         supportActionBar?.hide()
+    }
+
+    private fun showConfirmationDialog() {
+        // Create AlertDialog to confirm email reset request
+        AlertDialog.Builder(this)
+            .setTitle("Email Reset Sent")
+            .setMessage("A password reset link has been sent to your email. Please check your inbox.")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+                finish()  // Close ForgotPasswordActivity and go back to login screen
+            }
+            .setCancelable(false)
+            .show()
     }
 }

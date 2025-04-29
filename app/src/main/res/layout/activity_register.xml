@@ -132,17 +132,20 @@
                     android:background="@drawable/rounded" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Register Button -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:textSize="16sp"
                 android:text="Daftar"
-                android:background="@drawable/rounded"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:layout_marginBottom="16dp"
-                android:textColor="#FFF"
-                android:textStyle="bold" />
+                app:cornerRadius="10dp"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/green_light"
+                app:backgroundTint="@color/green_light"/>
+
 
             <!-- Login Redirect Text -->
             <LinearLayout

@@ -58,4 +58,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.play.services.auth)
+    // Retrofit versi terbaru (update April 2025)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+// OkHttp versi terbaru
+    implementation (libs.okhttp3.okhttp)
+    implementation (libs.logging.interceptor)
+
 }

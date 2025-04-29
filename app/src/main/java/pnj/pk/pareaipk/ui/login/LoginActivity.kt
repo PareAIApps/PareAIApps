@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginError.observe(this, Observer { errorMessage ->
             errorMessage?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                showErrorDialog(it)  // Menampilkan dialog error
             }
         })
 
@@ -73,6 +74,14 @@ class LoginActivity : AppCompatActivity() {
         binding.forgotPasswordText.setOnClickListener {
             startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
         }
+    }
+
+    private fun showErrorDialog(message: String) {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Login Gagal")
+        builder.setMessage(message)
+        builder.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+        builder.show()
     }
 
     private fun signInWithGoogle() {
