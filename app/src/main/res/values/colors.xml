@@ -7,4 +7,6 @@
     <color name="sun_yellow">#F5D76E</color>
     <color name="black">#000000</color>
     <color name="white">#F2F5F1</color>
+    <color name="red">#E53935</color>
+    <color name="yellow">#FFEB3B</color>
 </resources>

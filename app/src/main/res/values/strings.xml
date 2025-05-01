@@ -12,12 +12,11 @@
     <!--  Forgot Passoword  -->
     <string name="forgot_password_description">Masukkan email Anda untuk menerima tautan reset password</string>
 
-<!--  Scam  -->
+    <!--  Scam  -->
     <string name="img_cant_found">Image not found</string>
     <string name="camera_permission">Camera permission is required to proceed</string>
     <string name="uri_photo_fail">Failed to get the photo URI</string>
     <string name="img_empty">Please insert the image file first</string>
-
 
 
 </resources>

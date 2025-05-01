@@ -39,7 +39,7 @@
                 android:id="@+id/logoImage"
                 android:layout_width="200dp"
                 android:layout_height="190dp"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/logo"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 android:contentDescription="ilustrasi"/>
@@ -174,15 +174,22 @@
             </LinearLayout>
 
             <!-- Google Sign-In Button -->
-            <com.google.android.gms.common.SignInButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/green_third"
+                android:text="Masuk dengan Google"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                app:icon="@mipmap/google_logo_icon"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconSize="24dp"
+                app:cornerRadius="8dp" />
 
             <!-- Register Text -->
             <LinearLayout

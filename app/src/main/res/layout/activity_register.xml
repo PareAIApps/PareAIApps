@@ -24,7 +24,7 @@
                 android:id="@+id/logoImage"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/logo"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:contentDescription="Ilustrasi"/>

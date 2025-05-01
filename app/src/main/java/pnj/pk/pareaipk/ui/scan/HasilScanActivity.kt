@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import pnj.pk.pareaipk.R
 import pnj.pk.pareaipk.databinding.ActivityHasilScanBinding
 import pnj.pk.pareaipk.utils.uriToFile
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HasilScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHasilScanBinding
@@ -39,6 +42,7 @@ class HasilScanActivity : AppCompatActivity() {
         val imageFile = uriToFile(imageUri, this)
         binding.resultImage.setImageURI(imageUri)
 
+        // Show progress bar initially
         binding.progressBar.visibility = View.VISIBLE
         binding.resultContainer.visibility = View.GONE
 
@@ -49,17 +53,16 @@ class HasilScanActivity : AppCompatActivity() {
             binding.resultContainer.visibility = View.VISIBLE
 
             result.onSuccess { mlResponse ->
-                // Tampilkan hasil klasifikasi
+                // Update UI with result
                 binding.resultTitle.text = mlResponse.classLabel
                 binding.confidenceText.text = "Confidence: %.2f%%".format(mlResponse.confidence * 100)
-
-                // Tampilkan suggestion dari server
                 binding.resultDescription.text = "No explanation provided by server."
-                binding.suggestionText.text = mlResponse.suggestion.ifBlank { "No suggestion provided." }
+                binding.suggestionText.text = mlResponse.suggestion.ifEmpty { "No suggestion." }
                 binding.medicineText.text = "No medicine."
 
-                // Tampilkan createdAt dari API
-                binding.createdAt.text = "Created at: ${mlResponse.createdAt}"
+                // Show current timestamp
+                val createdAt = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date())
+                binding.createdAt.text = "Created at: $createdAt"
             }
 
             result.onFailure { exception ->

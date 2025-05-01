@@ -4,7 +4,9 @@
     package="pnj.pk.pareaipk">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -20,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pare_ai_pk"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.history.DetailHistoryActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.scan.HasilScanActivity"
             android:exported="false" />
