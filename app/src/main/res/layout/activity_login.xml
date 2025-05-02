@@ -39,17 +39,17 @@
                 android:id="@+id/logoImage"
                 android:layout_width="200dp"
                 android:layout_height="190dp"
-                android:src="@drawable/logo"
+                android:src="@mipmap/login"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:contentDescription="ilustrasi"/>
+                android:contentDescription="@string/illustration"/>
 
             <!-- App Title -->
             <TextView
                 android:id="@+id/appTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="login"
+                android:text="@string/login"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
@@ -61,7 +61,7 @@
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="email"
+                android:text="@string/email"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_marginBottom="1dp"
@@ -89,7 +89,7 @@
                 android:id="@+id/tv_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="password"
+                android:text="@string/password"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_marginBottom="1dp"
@@ -118,7 +118,7 @@
                 android:id="@+id/forgotPasswordText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="lupa password"
+                android:text="@string/forgot_password"
                 android:textColor="@color/green_light"
                 android:textStyle="bold"
                 android:layout_gravity="end"
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="16sp"
-                android:text="login"
+                android:text="@string/login"
                 android:textColor="#FFF"
                 android:textStyle="bold"
                 android:layout_marginBottom="25dp"
@@ -159,7 +159,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Atau login"
+                    android:text="@string/option_sign_in"
                     android:textSize="18sp"
                     android:gravity="center"
                     android:textColor="@color/black"
@@ -180,7 +180,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/green_third"
-                android:text="Masuk dengan Google"
+                android:text="@string/sign_in_google"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="14sp"
@@ -201,13 +201,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apakah Belum punya akun? "
+                    android:text="@string/not_have_account"
                     android:textColor="#000" />
                 <TextView
                     android:id="@+id/registerLink"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Register"
+                    android:text="@string/register"
                     android:textColor="@color/green_light"
                     android:layout_marginStart="3dp"
                     android:textStyle="bold" />

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Nara</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css" />
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <style>
+        :root {
+          --green-dark: #2f6d4f;
+          --green-light: #3c9d6d;
+          --green-third: #6bd4b1;
+          --sky-blue: #b4d5eb;
+          --sun-yellow: #f5d76e;
+          --black: #000000;
+          --white: #f2f5f1;
+          --red: #e53935;
+          --yellow: #ffeb3b;
+        }
+        body {
+          background-color: var(--white);
+          color: var(--black);
+          font-family: Arial, sans-serif;
+        }
+        df-messenger {
+          z-index: 999;
+          position: fixed;
+          --df-messenger-font-color: var(--black);
+          --df-messenger-font-family: Arial;
+          --df-messenger-chat-background: var(--green-third);
+          --df-messenger-message-user-background: var(--green-light);
+          --df-messenger-message-bot-background: var(--white);
+          bottom: 16px;
+          right: 16px;
+        }
+    </style>
+</head>
+<body>
+<df-messenger
+        project-id="instant-duality-436610-i9"
+        agent-id="ef1303af-7f7d-4acc-a781-1014a4d793c8"
+        language-code="id"
+        max-query-length="-1"
+>
+    <df-messenger-chat-bubble chat-title="Chat Nara"></df-messenger-chat-bubble>
+</df-messenger>
+</body>
+</html>
