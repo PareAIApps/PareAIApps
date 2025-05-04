@@ -56,9 +56,8 @@ class HasilScanActivity : AppCompatActivity() {
                 // Update UI with result
                 binding.resultTitle.text = mlResponse.classLabel
                 binding.confidenceText.text = "Confidence: %.2f%%".format(mlResponse.confidence * 100)
-                binding.resultDescription.text = "No explanation provided by server."
+                binding.resultDescription.text = mlResponse.description.ifEmpty { "No description." }
                 binding.suggestionText.text = mlResponse.suggestion.ifEmpty { "No suggestion." }
-                binding.medicineText.text = "No medicine."
 
                 // Show current timestamp
                 val createdAt = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date())

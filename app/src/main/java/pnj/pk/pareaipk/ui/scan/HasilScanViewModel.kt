@@ -55,6 +55,7 @@ class HasilScanViewModel(application: Application) : AndroidViewModel(applicatio
                             scanDate = currentDateTime,
                             explanation = "No explanation from server",
                             suggestion = mlResponse.suggestion.ifEmpty { "No suggestion." },
+                            description = mlResponse.description.ifEmpty { "No description." },
                             medicine = "No medicine"
                         )
 

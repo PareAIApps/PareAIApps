@@ -46,10 +46,8 @@ class DetailHistoryActivity : AppCompatActivity() {
                 // Populate UI with scan history details
                 binding.historyTitle.text = scanHistory.result
                 binding.confidenceText.text = "Confidence: ${scanHistory.confidenceScore}%"
-                binding.historyDescription.text = scanHistory.explanation
+                binding.historyDescription.text = scanHistory.description
                 binding.suggestionText.text = scanHistory.suggestion
-                binding.medicineText.text = scanHistory.medicine
-
                 // Format and set created at date
                 val inputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()) // Adjust to match input format
                 val outputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()) // Adjust to desired output format

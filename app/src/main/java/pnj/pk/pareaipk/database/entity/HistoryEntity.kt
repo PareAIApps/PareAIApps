@@ -12,6 +12,7 @@ data class HistoryEntity(
     val confidenceScore: Int,
     val scanDate: String,
     val explanation: String,
+    val description: String,
     val suggestion: String,
     val medicine: String
 )

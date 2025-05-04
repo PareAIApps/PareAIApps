@@ -9,6 +9,10 @@ data class ModelMLResponse(
     @SerializedName("confidence")
     val confidence: Double,
 
+    @SerializedName("description")
+    val description: String,
+
+
     @SerializedName("suggestion")
     val suggestion: String,
 

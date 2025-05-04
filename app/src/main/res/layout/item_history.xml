@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="200dp"
+    android:layout_width="200dp"
+    android:layout_height="280dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="8dp"
     app:cardUseCompatPadding="true">
@@ -13,12 +11,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:background="@drawable/bg_card_gradient">
 
         <ImageView
             android:id="@+id/imageStory"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
             android:src="@drawable/logo"
             android:scaleType="centerCrop" />
 
@@ -29,7 +29,9 @@
             android:text="Story Title"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"/>
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -20,13 +20,13 @@ class HistoryHorizontalAdapter(
         private val image: ImageView = itemView.findViewById(R.id.imageStory)
 
         fun bind(item: HistoryEntity) {
-            title.text = item.result  // Menampilkan result dari HistoryEntity
-            Glide.with(itemView.context) // Menampilkan gambar menggunakan Glide
+            title.text = item.result
+            Glide.with(itemView.context)
                 .load(item.imageUri)
                 .into(image)
 
             itemView.setOnClickListener {
-                onClick(item)
+                onClick(item) // Ini yang akan memanggil lambda untuk navigasi
             }
         }
     }
