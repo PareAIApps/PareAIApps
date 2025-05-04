@@ -19,6 +19,9 @@ class ChatbotActivity : AppCompatActivity() {
         binding = ActivityChatbotBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Sembunyikan ActionBar
+        supportActionBar?.hide()
+
         // Set the action bar title
         supportActionBar?.title = "Chatbot Nara"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

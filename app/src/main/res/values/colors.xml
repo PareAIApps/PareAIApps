@@ -9,4 +9,8 @@
     <color name="white">#F2F5F1</color>
     <color name="red">#E53935</color>
     <color name="yellow">#FFEB3B</color>
+
+    <color name="switch_track_inactive">#B0BEC5</color>
+    <color name="thumb_tint_active">#A3C583</color>
+    <color name="thumb_tint_inactive">#888888</color>
 </resources>

@@ -6,14 +6,14 @@
     <string name="web_client_id">910333591798-k2nap1mdpicksmf8nn6g8eq6qd2v1jbh.apps.googleusercontent.com</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="forgot_password">Lupa Password</string>
+    <string name="forgot_password">Lupa Password?</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="illustration">Ilustrasi</string>
 
     <!--  Login  -->
     <string name="sign_in_google">Masuk Dengan Google</string>
-    <string name="option_sign_in">Atau Masuk Dengan Google</string>
+    <string name="option_sign_in">Atau Login Dengan</string>
     <string name="email_invalid">Invalid email format</string>
     <string name="password_short">Password cannot be less than 6 characters</string>
     <string name="not_have_account">Belum punya akun?&#160;</string>
