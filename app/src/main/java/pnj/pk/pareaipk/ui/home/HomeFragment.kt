@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import pnj.pk.pareaipk.R
 import pnj.pk.pareaipk.adapter.HistoryHorizontalAdapter
 import pnj.pk.pareaipk.databinding.FragmentHomeBinding
 import pnj.pk.pareaipk.ui.chatbot.ChatbotActivity
@@ -21,8 +23,6 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var historyHorizontalAdapter: HistoryHorizontalAdapter
-
-    // Gunakan ViewModel dari package history
     private val historyViewModel: HistoryViewModel by viewModels()
 
     override fun onCreateView(
@@ -32,11 +32,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root = binding.root
 
-        // Siapkan adapter kosong
+        // Inisialisasi adapter kosong
         historyHorizontalAdapter = HistoryHorizontalAdapter(emptyList()) { scanHistory ->
-            // Setiap kali item di-klik, navigasikan ke DetailHistoryActivity
             val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
-                putExtra(DetailHistoryActivity.EXTRA_SCAN_HISTORY_ID, scanHistory.id) // Kirimkan ID riwayat
+                putExtra(DetailHistoryActivity.EXTRA_SCAN_HISTORY_ID, scanHistory.id)
             }
             startActivity(intent)
         }
@@ -46,11 +45,10 @@ class HomeFragment : Fragment() {
             adapter = historyHorizontalAdapter
         }
 
-        // Observe LiveData dari ViewModel
+        // Ambil hanya 5 data terbaru
         historyViewModel.allScanHistory.observe(viewLifecycleOwner) { historyList ->
-            // Update adapter dengan data yang diterima dari ViewModel
-            historyHorizontalAdapter = HistoryHorizontalAdapter(historyList) { scanHistory ->
-                // Navigasikan ke DetailHistoryActivity ketika item di-klik
+            val top5History = historyList.take(5)
+            historyHorizontalAdapter = HistoryHorizontalAdapter(top5History) { scanHistory ->
                 val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
                     putExtra(DetailHistoryActivity.EXTRA_SCAN_HISTORY_ID, scanHistory.id)
                 }
@@ -59,9 +57,19 @@ class HomeFragment : Fragment() {
             binding.recyclerViewHistoryHorizontal.adapter = historyHorizontalAdapter
         }
 
-        // Set up click listener for the FloatingActionButton (FAB)
+        // Navigasi ke HistoryFragment ketika klik "Lihat Semua"
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.navigation_home, true) // Pastikan untuk menghapus fragment home dari back stack
+            .build()
+
+        binding.textSeeAll.setOnClickListener {
+            findNavController().navigate(R.id.navigation_history, null, navOptions)
+        }
+
+
+
+        // Tombol untuk masuk ke ChatbotActivity
         binding.buttonChat.setOnClickListener {
-            // Start the ChatbotActivity when FAB is clicked
             val intent = Intent(requireContext(), ChatbotActivity::class.java)
             startActivity(intent)
         }

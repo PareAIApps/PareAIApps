@@ -1,37 +1,36 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="200dp"
-    android:layout_height="280dp"
+    android:layout_height="260dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="16dp"
     app:cardElevation="8dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@android:color/white"> <!-- Gunakan app:cardBackgroundColor, bukan android:cardBackgroundColor -->
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="12dp"
-        android:background="@drawable/bg_card_gradient">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageStory"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="top"
             android:src="@drawable/logo"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="Story Image" />
 
         <TextView
             android:id="@+id/textStory"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Story Title"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black_hint"
             android:textSize="18sp"
-            android:layout_marginTop="12dp"/>
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="35dp" />
 
-    </LinearLayout>
+    </FrameLayout>
 </androidx.cardview.widget.CardView>

@@ -58,13 +58,6 @@
                 android:gravity="center_vertical"/>
         </LinearLayout>
 
-        <!-- Separator -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E0E0E0"
-            android:layout_marginTop="16dp"/>
-
         <!-- Detail Scan Button with border -->
         <LinearLayout
             android:id="@+id/buttonDetailHistory"

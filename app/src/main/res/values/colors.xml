@@ -6,9 +6,15 @@
     <color name="sky_blue">#B4D5EB</color>
     <color name="sun_yellow">#F5D76E</color>
     <color name="black">#000000</color>
+    <color name="white_primary">#FFFFFF</color>
     <color name="white">#F2F5F1</color>
     <color name="red">#E53935</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="black_secondary">#1A1A1A</color>
+    <color name="black_third">#333333</color>
+    <color name="black_quaternary">#4D4D4D</color>
+    <color name="black_disabled">#666666</color>
+    <color name="black_hint">#808080</color>
 
     <color name="switch_track_inactive">#B0BEC5</color>
     <color name="thumb_tint_active">#A3C583</color>
