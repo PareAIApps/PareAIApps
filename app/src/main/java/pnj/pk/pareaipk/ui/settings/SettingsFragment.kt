@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -23,20 +24,26 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
+        val settingsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val logoutButton: Button = binding.root.findViewById(R.id.btn_logout)
+        val logoutButton: LinearLayout = binding.root.findViewById(R.id.btn_logout)
         logoutButton.setOnClickListener {
-            // Log out and navigate to LoginActivity
             logOut()
+        }
+
+        val aboutButton: LinearLayout = binding.root.findViewById(R.id.btn_about)
+        aboutButton.setOnClickListener {
+            // Navigasi ke AboutActivity
+            val intent = Intent(activity, pnj.pk.pareaipk.ui.about.AboutActivity::class.java)
+            startActivity(intent)
         }
 
         return root
     }
+
 
     private fun logOut() {
         // Log out the user (clear session, Firebase auth sign out, etc)

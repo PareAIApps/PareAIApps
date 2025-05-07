@@ -72,4 +72,7 @@ dependencies {
     ksp(libs.androidx.room.compiler) // Correctly use KSP for Room.
 
     implementation(libs.glide)
+
+    implementation (libs.material.v140)
+
 }

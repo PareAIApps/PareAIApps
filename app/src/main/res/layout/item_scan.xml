@@ -52,6 +52,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Scan Date"
                 android:textSize="12sp"
+                android:layout_marginBottom="20dp"
                 android:textColor="@color/black"
                 android:drawableStart="@drawable/ic_calendar"
                 android:drawablePadding="8dp"

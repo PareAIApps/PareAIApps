@@ -40,23 +40,23 @@ class HasilScanActivity : AppCompatActivity() {
 
         val imageUri = Uri.parse(imageUriString)
         val imageFile = uriToFile(imageUri, this)
-        binding.resultImage.setImageURI(imageUri)
+        binding.historyImage.setImageURI(imageUri)
 
         // Show progress bar initially
         binding.progressBar.visibility = View.VISIBLE
-        binding.resultContainer.visibility = View.GONE
+        binding.historyContainer.visibility = View.GONE
 
         viewModel.predictImage(imageFile)
 
         viewModel.predictionResult.observe(this) { result ->
             binding.progressBar.visibility = View.GONE
-            binding.resultContainer.visibility = View.VISIBLE
+            binding.historyContainer.visibility = View.VISIBLE
 
             result.onSuccess { mlResponse ->
                 // Update UI with result
-                binding.resultTitle.text = mlResponse.classLabel
-                binding.confidenceText.text = "Confidence: %.2f%%".format(mlResponse.confidence * 100)
-                binding.resultDescription.text = mlResponse.description.ifEmpty { "No description." }
+                binding.historyTitle.text = mlResponse.classLabel
+                binding.confidenceText.text = " %.2f%%".format(mlResponse.confidence * 100)
+                binding.historyDescription.text = mlResponse.description.ifEmpty { "No description." }
                 binding.suggestionText.text = mlResponse.suggestion.ifEmpty { "No suggestion." }
 
                 // Show current timestamp
@@ -66,8 +66,8 @@ class HasilScanActivity : AppCompatActivity() {
 
             result.onFailure { exception ->
                 Toast.makeText(this, "Prediction failed: ${exception.message}", Toast.LENGTH_SHORT).show()
-                binding.resultTitle.text = "Prediction Error"
-                binding.resultDescription.text = exception.message ?: "Unknown error occurred"
+                binding.historyTitle.text = "Prediction Error"
+                binding.historyDescription.text = exception.message ?: "Unknown error occurred"
             }
         }
     }

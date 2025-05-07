@@ -2,18 +2,14 @@ package pnj.pk.pareaipk.ui.history
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import pnj.pk.pareaipk.R
 import pnj.pk.pareaipk.databinding.ActivityDetailHistoryBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
-import kotlin.getValue
+import kotlin.math.roundToInt
 
 class DetailHistoryActivity : AppCompatActivity() {
 
@@ -45,15 +41,47 @@ class DetailHistoryActivity : AppCompatActivity() {
             scanHistory?.let {
                 // Populate UI with scan history details
                 binding.historyTitle.text = scanHistory.result
-                binding.confidenceText.text = "Confidence: ${scanHistory.confidenceScore}%"
+
+                // Parse confidence score from String to Float for ProgressBar
+                val confidenceStr = scanHistory.confidenceScore.toString()
+                val confidenceValue = try {
+                    // Remove percent sign (%) if present
+                    if (confidenceStr.contains("%")) {
+                        confidenceStr.substring(0, confidenceStr.indexOf("%")).trim().toFloat()
+                    } else {
+                        confidenceStr.trim().toFloat()
+                    }
+                } catch (e: NumberFormatException) {
+                    // Default to 0 if format is invalid
+                    0f
+                }
+
+                // Set progress bar value - this will display our gradient color
+                binding.confidenceProgressBar.progress = confidenceValue.roundToInt()
+
+                // Set confidence text with percent sign
+                val formattedConfidence = if (confidenceStr.contains("%")) {
+                    // If percent sign already exists, use directly
+                    confidenceStr
+                } else {
+                    // Format number without decimal if value is whole number
+                    if (confidenceValue % 1 == 0f) {
+                        "${confidenceValue.toInt()}%"  // Whole number without decimal
+                    } else {
+                        "$confidenceValue%"  // Number with decimal
+                    }
+                }
+                binding.confidenceText.text = formattedConfidence
+
                 binding.historyDescription.text = scanHistory.description
                 binding.suggestionText.text = scanHistory.suggestion
-                // Format and set created at date
-                val inputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()) // Adjust to match input format
-                val outputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()) // Adjust to desired output format
 
-                val date = inputDateFormat.parse(scanHistory.scanDate) // Parse the input date
-                binding.createdAt.text = "Created at: ${outputDateFormat.format(date)}" // Format the parsed date
+                // Format and set created at date
+                val inputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+                val outputDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+
+                val date = inputDateFormat.parse(scanHistory.scanDate)
+                binding.createdAt.text = "Created at: ${outputDateFormat.format(date)}"
 
                 // Load image using Glide
                 Glide.with(this)

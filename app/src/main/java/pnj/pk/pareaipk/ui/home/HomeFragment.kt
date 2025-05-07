@@ -47,14 +47,22 @@ class HomeFragment : Fragment() {
 
         // Ambil hanya 5 data terbaru
         historyViewModel.allScanHistory.observe(viewLifecycleOwner) { historyList ->
-            val top5History = historyList.take(5)
-            historyHorizontalAdapter = HistoryHorizontalAdapter(top5History) { scanHistory ->
-                val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
-                    putExtra(DetailHistoryActivity.EXTRA_SCAN_HISTORY_ID, scanHistory.id)
+            if (historyList.isNullOrEmpty()) {
+                binding.historyHeaderLayout.visibility = View.GONE
+                binding.recyclerViewHistoryHorizontal.visibility = View.GONE
+            } else {
+                binding.historyHeaderLayout.visibility = View.VISIBLE
+                binding.recyclerViewHistoryHorizontal.visibility = View.VISIBLE
+
+                val top5History = historyList.take(5)
+                historyHorizontalAdapter = HistoryHorizontalAdapter(top5History) { scanHistory ->
+                    val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
+                        putExtra(DetailHistoryActivity.EXTRA_SCAN_HISTORY_ID, scanHistory.id)
+                    }
+                    startActivity(intent)
                 }
-                startActivity(intent)
+                binding.recyclerViewHistoryHorizontal.adapter = historyHorizontalAdapter
             }
-            binding.recyclerViewHistoryHorizontal.adapter = historyHorizontalAdapter
         }
 
         // Navigasi ke HistoryFragment ketika klik "Lihat Semua"
@@ -65,8 +73,6 @@ class HomeFragment : Fragment() {
         binding.textSeeAll.setOnClickListener {
             findNavController().navigate(R.id.navigation_history, null, navOptions)
         }
-
-
 
         // Tombol untuk masuk ke ChatbotActivity
         binding.buttonChat.setOnClickListener {
